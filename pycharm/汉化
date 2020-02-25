@@ -1,0 +1,19 @@
+1 首先打开终端（terminal）
+  输入 cd /tmp 
+  然后输入 git clone https://github.com/ewen0930/PyCharm-Chinese
+  成功之后执行  cd PyCharm-Chinese
+  然后执行 bash package.cmd   (如果出现你没有root权限，此时需要先执行sudo su ,然后执行bash package.cmd)
+  如果你能在文件/tmp/PyCharm-Chinese/中找到即可。   （若找不到jar命令，需安装配置java环境，ubuntu为apt install default-jdk）
+  sudo cp resource_zh.jar /home/sofeware/pycharm-community/lib  (将.jar文件移动到后文件夹中，如果提示后者文件夹不存在你需要去文件里面搜索
+  pycharm-community安装位置，然后找到pycharm-community/lib文件，更改后者文件path或者手动复制粘贴也可以)
+2 重新启动 pycharm即可生效
+
+方法二：就是下载一个resources_cn.jar（或者为resources_ZH.jar）
+
+按照上面的方法手动粘贴到相应的文件夹也行
+另外：Windows系统下道理是一样的，下载resources_cn.jar文件，把他放在pycharm安装文件夹下的lib文件夹下，然后重新启动就好！
+--------------------- 
+作者：晚秋_成一 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_35464953/article/details/79487392 
+版权声明：本文为博主原创文章，转载请附上博文链接！
