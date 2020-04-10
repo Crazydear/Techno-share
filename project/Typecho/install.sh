@@ -238,7 +238,7 @@ EOF
 
 ###restart MariaDB server and connect to MariaDB to create the database
 /usr/sbin/service mysql restart && mysql -uroot <<EOF
-CREATE DATABASE nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE typecho CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE USER typecho@localhost identified by 'typecho';
 GRANT ALL PRIVILEGES on typecho.* to typecho@localhost;
 FLUSH privileges;
@@ -476,7 +476,7 @@ EOF
 
 ###enable all nginx configuration files
 sed -i s/\#\include/\include/g /etc/nginx/nginx.conf
-sed -i "s/server_name YOUR.DEDYN.IO;/server_name $(hostname);/" /etc/nginx/conf.d/nextcloud.conf
+sed -i "s/server_name YOUR.DEDYN.IO;/server_name $(hostname);/" /etc/nginx/conf.d/typecho.conf
 
 ###create Typecho cronjob
 (crontab -u www-data -l ; echo "*/5 * * * * php -f /var/www/typecho/cron.php > /dev/null 2>&1") | crontab -u www-data -
