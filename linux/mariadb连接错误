@@ -1,0 +1,8 @@
+远程测试连接mysql/mariaDB数据库的过程中有时会提示 “1045-Access denied for user root@IT(using password:NO)” 这种错误，出现这种错误的原因是没有给远程登录用户添加所有机器都能访问的权限，对应的解决办法如下：
+	添加相应的权限，添加权限命令如下：
+	grant all on *.* to 用户名@"%" identified by "密码";//用户名和密码处替换你自己的信息
+	flush privileges;
+	执行上述两步，问题应该得到解决。
+————————————————
+版权声明：本文为CSDN博主「somehow1002」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/somehow1002/java/article/details/51292299
