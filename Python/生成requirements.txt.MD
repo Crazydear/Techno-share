@@ -1,6 +1,6 @@
 # 安装
 
-···
+```
 pip install pipreqs
 ```
 
