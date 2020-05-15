@@ -2,7 +2,7 @@
 
 方法一：
 
-'''Python
+```Python
 def parse_js(expr):
     """
     解析非标准JSON的Javascript字符串，等同于json.loads(JSON str)
@@ -11,11 +11,12 @@ def parse_js(expr):
     """
     obj = eval(expr, type('Dummy', (dict,), dict(__getitem__=lambda s, n: n))())
     return obj
-'''
+```
 
 方法二(推荐)
 
-'''Python
+```Python
+
 def parse_js(expr):
     """
     解析非标准JSON的Javascript字符串，等同于json.loads(JSON str)
@@ -43,6 +44,6 @@ def parse_js(expr):
             raise NotImplementedError(node.__class__)
 
     return parse(a)
-'''
+```
 
 [出处](https://www.cnblogs.com/taceywong/p/5876621.html)
