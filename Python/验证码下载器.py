@@ -3,6 +3,8 @@ import tkinter.messagebox
 import tkinter as tk
 from PIL import Image, ImageTk
 from shutil import copyfile
+import pyautogui as pg
+
 
 class DownCapcha(tk.Frame):
     def __init__(self,master=None):
@@ -14,7 +16,7 @@ class DownCapcha(tk.Frame):
         self.createWidgets()
 
     def downimg(self):
-        cont = requests.get('http://hostname/captcha.jpg')
+        cont = requests.get('http://jwxs.hebut.edu.cn/img/captcha.jpg')
         with open('temp.jpg', 'wb') as f:
             f.write(cont.content)
 
@@ -25,11 +27,13 @@ class DownCapcha(tk.Frame):
         self.lbPic['image'] = im1
         self.lbPic.image = im1
 
-    def btnNextClick(self,event):  # “下一张”按钮
+    def btnNextClick(self,event=None):  # “下一张”按钮
         self.num += 1
+        if self.num == 1:
+            pg.press('shift')
         self.number.set('目前已经下载验证码%d张' % self.num)
         filename = self.textStr.get()
-        copyfile('temp.jpg', 'temp/%s.jpg' % filename)
+        copyfile('temp.jpg', 'temp1/{0}_{1}.jpg'.format(filename, self.num))
         self.downimg()
         self.textStr.set('')
         self.changePic()
@@ -47,8 +51,8 @@ class DownCapcha(tk.Frame):
         self.textStr = tkinter.StringVar()
         self.text = tkinter.Entry(self.master, textvariable=self.textStr)
         self.text.place(x=210, y=5, width=100, height=30)
-        self.text.bind('<Return>', self.btnNextClick)   # 监听回车
+        self.text.bind('<Return>', self.btnNextClick)
 
 if __name__ == '__main__':
     top = tk.Tk()
-    Downcapcha(top).mainloop()
+    DownCapcha(top).mainloop()
