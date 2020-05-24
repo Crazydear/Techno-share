@@ -16,7 +16,7 @@ class DownCapcha(tk.Frame):
         self.createWidgets()
 
     def downimg(self):
-        cont = requests.get('http://jwxs.hebut.edu.cn/img/captcha.jpg')
+        cont = requests.get(url)
         with open('temp.jpg', 'wb') as f:
             f.write(cont.content)
 
@@ -54,5 +54,6 @@ class DownCapcha(tk.Frame):
         self.text.bind('<Return>', self.btnNextClick)
 
 if __name__ == '__main__':
+    url = ""
     top = tk.Tk()
     DownCapcha(top).mainloop()
