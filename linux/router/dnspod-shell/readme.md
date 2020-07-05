@@ -1,4 +1,5 @@
 [ArDNSPod原作者地址](https://github.com/anrip/dnspod-shell)
+[博客使用说明](https://www.anrip.com/post/62)
 # ArDNSPod
 
 基于DNSPod用户API实现的纯Shell动态域名客户端，优先适配网卡地址，无法获得合法外网地址则使用外部接口获取IP地址
