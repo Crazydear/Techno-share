@@ -1,0 +1,22 @@
+nginx 用户访问认证
+
+> ```
+> /etc/nginx/conf.d/test.conf
+> ```
+
+```
+server {
+  listen 80;
+  server_name test.domition.com;
+  
+  location = /test {
+    auth_basic "请输入认证码";
+    auth_basic_user_file /etc/nginx/.keys;
+  }
+}
+```
+
+```shell
+htpasswd -c /etc/nginx/.keys username
+```
+输入两次密码
